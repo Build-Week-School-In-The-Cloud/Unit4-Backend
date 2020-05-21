@@ -1,12 +1,12 @@
 # Unit4-Backend
 ## School in the Cloud
-**Heroku link:** [https://stc-school-in-the-cloud.herokuapp.com/]
+**Heroku link:** [https://build-week-school-in-the-cloud.herokuapp.com/]
 
 ================================================================
 ## USERS ROUTER
 
 ===================================================================
-**GET `/api/users` 
+**GET** `/api/users` 
 
 #### Response 
 Content-Type | application/json
@@ -30,7 +30,7 @@ Content-Type | application/json
 }
 ]
 ============================================================================
-**GET `/api/admin`
+**GET** `/api/admin`
 
 #### Response
 $if success: `200`
@@ -62,7 +62,7 @@ Content-Type | application/json
 ]
 
 =============================================================================
-***POST `/api/admin`
+***POST*** `/api/admin`
 
 #### Body
 {
