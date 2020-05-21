@@ -4,6 +4,8 @@ exports.up = function(knex) {
         //Primary User's table
         .createTable('users', users => {
             users.increments()
+                .notNullable()
+                
 
             users.string('username', 255)
                 .notNullable()
@@ -19,7 +21,7 @@ exports.up = function(knex) {
 
         // Secondary Role Table
         .createTable('user-role', table => {
-            table.increments()
+            table.increments('role_id')
 
             table.boolean('logged_in')
                 .notNullable()
@@ -72,6 +74,22 @@ exports.up = function(knex) {
 
             tbl.integer('auth_id')
                 .defaultTo('2')
+
+            tbl.boolean('available')
+            
+
+            tbl.string('country')
+            
+            tbl.string('available_time')
+        })
+
+        //Tasks table
+        .createTable('task', tbl => {
+            tbl.increments('task_id')
+            tbl.string('task')
+            tbl.integer('createBy')
+            tbl.integer('assignedTo')
+            tbl.string('description')
         })
 
 };
@@ -82,5 +100,6 @@ exports.down = function(knex) {
     knex.schema.dropTableIfExists('student')
     knex.schema.dropTableIfExists('admin')
     knex.schema.dropTableIfExists('volunteer')
+    knex.schema.dropTableIfExists('task')
 };
 

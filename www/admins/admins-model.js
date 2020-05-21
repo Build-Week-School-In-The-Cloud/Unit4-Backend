@@ -8,18 +8,18 @@ module.exports = {
 }
 
 function find() {
-    return db('users').table('admin')
+    return db('user').table('admin')
         .select('id', 'firstName', 'lastName')
 }
 
 function findById(id) {
-    return db('users').table('admin')
+    return db('user').table('admin')
         .where({ id })
         .first()
 }
 
 async function add(admin) {
-    const [id] = await db('users').table('admin').insert(admin);
+    const [id] = await db('user').table('admin').insert(admin);
 
     return findById(id)
 
