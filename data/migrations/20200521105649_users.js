@@ -1,6 +1,7 @@
 exports.up = function(knex) {
     return knex.schema
 
+    //TODO: users table should consider input from registration form 
         //Primary User's table
         .createTable('users', users => {
             users.increments()
@@ -17,7 +18,6 @@ exports.up = function(knex) {
 
             users.string('role', 255)
                 .notNullable()
-
 
         })
 
@@ -90,7 +90,7 @@ exports.up = function(knex) {
         //     .references('')
 
         //     table.string('role', 255)
-        //     .notNullable()
+        //     
 
         //     table.integer('volunteer_id')
         //         .references('id')
