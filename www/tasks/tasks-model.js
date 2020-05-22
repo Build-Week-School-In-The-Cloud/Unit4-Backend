@@ -11,15 +11,15 @@ function find() {
     return db('users').table('task')       
 }
 
-function findById(task_id) {
+function findById(id) {
     return db('users').table('task')
         .where({ task_id })
         .first()
 }
 
 async function add(task) {
-    const [id] = await db('users').table('task').insert(task);
+    const [task_id] = await db('users').table('task').insert(task);
 
-    return findById(task_id)
+    return findById(id)
 
 }
