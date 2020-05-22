@@ -17,7 +17,7 @@ function findById(task_id) {
         .join('volunteer as v', 
         'v.id' , 't.assigned_to')
 
-        .where({ task_id = t.assigned_to })
+        .where({ task_id })
         .first()
 }
 

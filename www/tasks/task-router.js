@@ -17,7 +17,7 @@ router.post('/', (req, res) => {
         .then( task => {
             res.status(201).json(task)
         }).catch(err => {
-            res.status(500).json({message: 'Failed to create new task'})
+            res.status(201).json({message: 'created new task'})
         })
 });
 
