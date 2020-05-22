@@ -61,6 +61,27 @@ Content-Type | application/json
 }
 ]
 
+***GET*** `/api/admin/tasks`
+
+#### Body 
+
+[
+    {
+        "task_id": 5,
+        "task_name": "Zoom Session",
+        "created_by": 2,
+        "assigned_to": 1,
+        "description": "Prepare the PVD and DB Schema",
+        "due_date": ""
+    },
+]
+
+### Response 
+
+
+$if success : `200`
+
+
 
 ***POST*** `/api/admin`
 
@@ -80,3 +101,28 @@ Content-Type | application/json
     "auth_id": 1 
     }
 
+***POST*** `/api/admin/tasks`
+
+#### Body
+
+Content-Type | application/json
+
+{
+        "task_id": 11,
+        "task_name": "Test API Again",
+        "created_by": 2,
+        "assigned_to": 13,
+        "description": "Testing a POST request from Admin View",
+        "due_date": "05-25-2020"
+},
+
+
+$if success `201` : "message": "created new task"
+
+==============================
+# Views
+`/api/admin/` : list of admins
+`/api/admin/tasks` : list of tasks
+`/api/users` : list of users
+`/api/volunteer/:id/tasks` : list of tasks
+`'/api/student/view'` : list of volunteers
