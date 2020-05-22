@@ -20,5 +20,5 @@ function findById(id) {
 
 function find() {
     return db('users')
-        .select('id', 'username', 'password')
+        .select('id', 'username', 'password', 'role')
 }
