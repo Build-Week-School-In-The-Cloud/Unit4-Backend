@@ -23,3 +23,9 @@ async function add(task) {
     return findById(id)
 
 }
+
+/* async function edit(task) { 
+    const [task_id] = await db('users')
+        .table('task as t')
+        .join('volunteer as v', 't.assigned_to')}
+*/

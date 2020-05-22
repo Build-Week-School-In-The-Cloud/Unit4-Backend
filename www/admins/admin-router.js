@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newAdmin = req.body;
-    Admins.add(newAdmin)
+    Admin.add(newAdmin)
         .then( admin => {
             res.status(201).json(admin)
         }).catch(err => {

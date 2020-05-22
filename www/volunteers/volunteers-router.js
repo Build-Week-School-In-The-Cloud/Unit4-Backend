@@ -11,4 +11,9 @@ router.get('/', (req, res) => {
         })
 })
 
+router.put('/', (req, res) => {
+    //configure to edit boolean toggle
+
+})
+
 module.exports = router;
