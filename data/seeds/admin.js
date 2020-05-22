@@ -4,10 +4,10 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('admin').insert([
-        {firstName: 'Jack', lastName: 'Dempsy', auth_id: 1},
-        {firstName: 'Jill', lastName: 'Hill', auth_id: 1},
-        {firstName: 'Jester', lastName: 'Tester', auth_id: 1},
-        {firstName: 'Dummy', lastName: 'Administrator', auth_id: 1}
+        {admin_First: 'Jack', admin_Last: 'Dempsy', auth_id: '1', email: ''},
+        {admin_First: 'Jill', admin_Last: 'Hill', auth_id: '1', email: ''},
+        {admin_First: 'Jester', admin_Last: 'Tester', auth_id: '1', email: ''},
+        {admin_First: 'Dummy', admin_Last: 'Administrator', auth_id: '1', email: ''}
       ]);
     });
 };

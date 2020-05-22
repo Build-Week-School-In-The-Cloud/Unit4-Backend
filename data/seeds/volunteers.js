@@ -5,29 +5,29 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('volunteer').insert([
-        {auth_id: '', 
+        { 
         firstName: 'Bruce', 
         lastName: 'Willis', 
         country: 'USA', 
-        available: '1', 
+        on_line: '1', 
         available_time: '9am-5pm'},
-        {auth_id: '', 
+        { 
         firstName: 'Lisa', 
         lastName: 'Willis', 
         country: 'USA', 
-        available: '1', 
+        on_line: '1', 
         available_time: '9am-5pm'},
-        {auth_id: '', 
+        { 
         firstName: 'Sherr', 
         lastName: 'Willis', 
         country: 'USA', 
-        available: '0', 
+        on_line: '0', 
         available_time: '9am-5pm'},
-        {auth_id: '', 
+        { 
         firstName: 'Bruce', 
         lastName: 'Lee', 
         country: 'CHINA', 
-        available: '0', 
+        on_line: '0', 
         available_time: '9am-5pm'}
       ]);
     });
