@@ -24,22 +24,22 @@ server.set('view engine', 'pug');
 
 
 server.get('/api', restrict, (req,res) => {
-   res.status(403).json({api: "testing the api"})
+   res.status(403).json({page: "Login Portal"})
 });
 
 
 server.get('/api/volunteer', (req, res) => {
-    res.status(200).send('<p>Volunteer Page</p>')
+    res.status(200).json({page: 'Volunteer Portal'})
 });
 
 server.get('/api/student', (req, res) => {
-    res.status(200).send('<p>Student Page </p>')
+    res.status(200).json({page: 'Student Portal'})
 });
 
 
 
 server.get('/', (req, res) => {
-    res.status(200).send('<p>Welcome to SITC!</p>')
+    res.status(200).json({page: 'Welcome to School In The Cloud'})
 });
 
 module.exports = server;
