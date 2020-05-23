@@ -124,6 +124,7 @@ exports.up = function(knex) {
             tbl.date('due_date')
             tbl.boolean('completed')
                 .defaultTo(false)
+                
         })
 
 };

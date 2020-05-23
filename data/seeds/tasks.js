@@ -7,13 +7,13 @@ exports.seed = function(knex) {
       return knex('task').insert([
         {task_name: 'Zoom Session', created_by: '2', 
         description: 'Prepare the PVD and DB Schema', 
-        due_date: '', assigned_to: '1'},
+        due_date: '', assigned_to: '1', completed: true},
         {task_name: 'Study Session', created_by: '2', 
         description: 'Prepare the PVD and DB Schema', 
-        due_date: '', assigned_to: '4'},
+        due_date: '', assigned_to: '4', completed: true},
         {task_name: 'Study Session', created_by: '2', 
         description: 'Prepare the PVD and DB Schema', 
-        due_date: '', assigned_to: '8'}
+        due_date: '', assigned_to: '8', completed: false}
       ]);
     });
 };
