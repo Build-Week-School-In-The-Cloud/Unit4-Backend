@@ -1,17 +1,21 @@
-const express = require('express')
-const TaskModel = require('../volunteers/volunteers-model')
+// const express = require('express')
+// const TaskModel = require('../volunteers/volunteers-model')
 
-const router = express.Router()
+// const router = express.Router()
 
-router.get('/:id', async (req, res, next) => {
-    try {
-        const { id } = req.params
-        const task = await TaskModel.findById()
+// router.get(`/:id`, (req, res) => {
 
-        res.status(200).json(task)
+//         const id = Number(req.params.id)
+//         const getTask = TaskModel.find((task) => {
+//             task.id === id
 
+//             if (!getTask) {
+//                 res.status(500).json({error: 'No tasks found'})
+//             } else {
 
-    } catch (err) {
-        next(err)
-    }
-})
+//                 res.status(200).json(getTask)
+//             }
+//         })
+// })
+
+// module.exports = router;

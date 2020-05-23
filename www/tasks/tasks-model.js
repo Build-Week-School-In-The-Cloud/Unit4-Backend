@@ -4,11 +4,18 @@ module.exports = {
     find,
     findById,
     add,
+    vsearch,
 
 }
 
 function find() {
     return db('users').table('task')       
+}
+
+function vsearch() {
+    return db('users').table('task as t')
+        .join('volunteer as v', 'v.id', 't.assigned_to')
+        // .where('t.assigned_to', '=' ,'v.id')
 }
 
 function findById(id) {

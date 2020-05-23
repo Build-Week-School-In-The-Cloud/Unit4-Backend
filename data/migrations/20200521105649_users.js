@@ -38,7 +38,8 @@ exports.up = function(knex) {
             
             tbl.string('email')
             
-            
+            tbl.integer('auth_id')
+                .defaultTo('0')
         })
         
         // Administrator's Table
@@ -121,6 +122,9 @@ exports.up = function(knex) {
 
             tbl.string('description')
             tbl.date('due_date')
+            tbl.boolean('completed')
+                .defaultTo(false)
+                
         })
 
 };
