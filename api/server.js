@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const restrict = require('../auth/auth-auth_middleware')
@@ -20,8 +21,6 @@ server.use('/api/student/view', studentRouter)
 
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'pug');
-
-server.use('/api/about', express.static('index'))
 
 
 server.get('/api', restrict, (req,res) => {
