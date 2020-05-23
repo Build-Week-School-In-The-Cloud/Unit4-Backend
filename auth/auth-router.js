@@ -36,10 +36,10 @@ router.post('/register', async (req, res, next) => {
             password: hashPass
         });
 
-        res.status(201).json(newUser);
+        res.status(201).json({ok: newUser});
 
     } catch(err) {
-        res.status(500).json(err)
+        res.status(500).json({error: 'Internal Server Error'})
     }
 })
 
@@ -54,10 +54,10 @@ router.post('/login', (req, res) => {
                 const token = genToken(user)
                 res.status(200).json({ message: `Welcome ${user.username}!`, token: token});
             } else {
-                res.status(401).json({ message: 'Invalid Credentials' });
+                res.status(498).json({ message: 'Invalid Token' });
             }
         }).catch(err => {
-            res.status(500).json(err)
+            res.status(500).json({error: 'Internal Server Error'})
         })
 })
 
