@@ -39,7 +39,7 @@ router.post('/register', async (req, res, next) => {
         res.status(201).json(newUser);
 
     } catch(err) {
-        res.status(500).json(err)
+        res.status(500).json({error: 'Internal Server Error'})
     }
 })
 

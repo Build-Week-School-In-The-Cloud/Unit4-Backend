@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
         if (token) {
         jwt.verify(token, secrets.jwtSecret, (err, decoded) => {
             if (err) {
-                res.status(401).json({ message: "Invalid Credentials"})
+                res.status(401).json({ message: "Unauthorized"})
             } else {
                 req.user = {username: decoded.username}
                 next();
@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
         })
 
         } else { 
-            res.status(400).json({ error: 'Please log in'})
+            res.status(403).json({ error: 'Forbidden'})
         }
     
 }

@@ -8,8 +8,7 @@ const taskRouter = require('../www/tasks/task-router')
 const volunteerRouter = require('../www/volunteers/volunteers-router')
 // const authRouter = require('../auth/auth-router')
 const server = express();
-
-
+server.use(express.urlencoded({ extended: true}))
 
 server.use(express.json())
 // server.use('/api/login', authRouter);
@@ -22,8 +21,11 @@ server.use('/api/student/view', studentRouter)
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'pug');
 
+server.use('/api/about', express.static('index'))
+
+
 server.get('/api', restrict, (req,res) => {
-   res.status(200).json({api: "testing the api"})
+   res.status(403).json({api: "testing the api"})
 });
 
 
@@ -38,7 +40,7 @@ server.get('/api/student', (req, res) => {
 
 
 server.get('/', (req, res) => {
-    res.status(200).send('<h3>SITC Login</h3>')
+    res.status(200).send('<p>Welcome to SITC!</p>')
 });
 
 module.exports = server;
