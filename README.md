@@ -214,5 +214,5 @@ Authentication | in progress
 - [ ] `/api/login` : login page
 - [ ] `/api/logout` : logout page
 
-- [ ] use Mocha or Jest for integration test
+- [x] use Mocha or Jest for integration test
 
