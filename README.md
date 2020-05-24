@@ -30,7 +30,7 @@ GET                      | RESPONSE
 Content-Type | application/json
 -------------|------------------
              |
-Body         |  [{
+Body         |  ```javascript [{
              |   "task_id": 16,
              |   "task_name": "Zoom Session",
              |   "created_by": 2,
@@ -38,7 +38,7 @@ Body         |  [{
              |   "description": "Prepare the PVD and DB Schema",
              |   "due_date": "",
              |   "completed": 1
-             |  },
+             |  },```
 -------------|---------------------------------------------------------
 
 #### Body
