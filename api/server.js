@@ -12,7 +12,9 @@ const server = express();
 server.use(express.urlencoded({ extended: true}))
 
 server.use(express.json())
-server.use('/api/login', authRouter);
+// server.use('/api/user', authRouter);
+
+server.use('/api', authRouter)
 server.use('/api/admin', adminRouter);
 server.use('/api/users', userRouter);
 server.use('/api/admin/tasks', taskRouter)
@@ -22,10 +24,6 @@ server.use('/api/student/view', studentRouter)
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'pug');
 
-
-server.get('/api', restrict, (req,res) => {
-   res.status(403).json({page: "Login Portal"})
-});
 
 
 server.get('/api/volunteer', (req, res) => {
