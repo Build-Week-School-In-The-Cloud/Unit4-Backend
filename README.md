@@ -96,7 +96,7 @@ Authentication | in progress
 ]
 ```
 
-`/api/volunteer : volunteer landing page
+`/api/volunteer` : volunteer landing page
 ```
 {
 "page": "Volunteer Portal"
