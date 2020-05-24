@@ -7,34 +7,40 @@ Login Router | Logout Router
 -------------| -------------
 
 
-POST        | RESPONSE
-------------|--------
-/api/login  | 200
-    
-
-#### Response 
+POST                     |  RESPONSE
+-------------------------|--------------
+/api/login               |     200
+/api/admin/tasks         |     201
+/api/volunteer/:id/tasks |     500
+-------------------------------------------
+-------------------------------------------
+       GET               | RESPONSE
+-------------------------|--------------------------
+/                        | 200
+/api                     | 403
+/api/students            | 200
+/api/students/view       | 200
+/api/volunteer/:id/tasks | 200
+/api/admin               | 200
+/api/admin/tasks         | 200
+ 
 Content-Type | application/json
--------------------------------------------------
+-------------|------------------
+             |
+Body         |  [{
+             |   "task_id": 16,
+             |   "task_name": "Zoom Session",
+             |   "created_by": 2,
+             |   "assigned_to": 1,
+             |   "description": "Prepare the PVD and DB Schema",
+             |   "due_date": "",
+             |   "completed": 1
+             |  },
+-------------|---------------------------------------------------------
 
 #### Body
 
-[
-{
-"id": 1,
-"username": "student",
-"password": "student"
-},
-{
-"id": 2,
-"username": "admin",
-"password": "admin"
-},
-{
-"id": 3,
-"username": "volunteer",
-"password": "credit"
-}
-]
+
 ============================================================================
 **GET** `/api/admin`
 
