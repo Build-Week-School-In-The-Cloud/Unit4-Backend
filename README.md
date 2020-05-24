@@ -3,15 +3,16 @@
 **Heroku link:** [https://build-week-school-in-the-cloud.herokuapp.com/]
 
 ================================================================
-## Login ROUTER
+## Login Router
 
-    POST | RESPONSE
-    --------------
-    `/api/login` | 200
+   POST | RESPONSE
+   --------------
+   /api/login | 200
     
 
 #### Response 
 Content-Type | application/json
+-------------------------------------------------
 
 #### Body
 
