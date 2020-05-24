@@ -36,6 +36,7 @@ Authentication | in progress
 
 
 
+
 ------------------------------
 # Views
 `/api/admin/` : admin landing page [subject to change response]
@@ -201,10 +202,17 @@ Authentication | in progress
 }
 ```
 
-## TODO
-`/api/register` : on-boarding page
-`/api/login` : login page
-`/api/logout` : logout page
+`/api/login` : POST
+```
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoic3R1ZGVudCIsInBhc3N3b3JkIjoic3R1ZGVudCJ9LCJpYXQiOjE1OTAzMzg0MjB9.16VQC5aPl1HDfGLjMCMNH_qsiDAbO3sXE9Tn9fqJaiY"
+}
+```
 
-use Mocha or Jest for integration test
+## TODO
+- [ ] `/api/register` : on-boarding page
+- [ ] `/api/login` : login page
+- [ ] `/api/logout` : logout page
+
+- [ ] use Mocha or Jest for integration test
 

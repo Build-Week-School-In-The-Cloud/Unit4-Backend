@@ -49,8 +49,8 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
 
     let user = { 
-        username: 'student', 
-        password: 'student' 
+        username: req.body.username, 
+        password: req.body.password
     }
 
     jwt.sign({user}, 'jwtSecret', (err, token) => {
