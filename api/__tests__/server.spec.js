@@ -63,6 +63,63 @@ describe('integration testing', () => {
             const response = await request(server).get('/api/volunteer')
             expect(response.type).toMatch(/json/)
         })
+        
+
+
+    })
+
+    describe('GET /api/volunteer/:id/tasks', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).get('/api/volunteer/:id/tasks')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).get('/api/volunteer/:id/tasks')
+            expect(response.type).toMatch(/json/)
+        })
+        test('should be of length ', async () => {
+            const response = await request(server).get('/api/volunteer/:id/tasks')
+            expect(response.type).toHaveLength(16)
+        })
+
+
+    })
+
+    describe('GET /api/student', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).get('/api/student')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).get('/api/student')
+            expect(response.type).toMatch(/json/)
+        })
+
+
+    })
+
+    describe('GET /api/student/view', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).get('/api/student/view')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).get('/api/student/view')
+            expect(response.type).toMatch(/json/)
+        })
+
+
+    })
+
+    describe('POST /api/login', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).post('/api/login')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).post('/api/login')
+            expect(response.type).toMatch(/json/)
+        })
 
 
     })
