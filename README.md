@@ -30,7 +30,7 @@ GET                      | RESPONSE
 Content-Type | application/json
 -------------|------------------
              |
-Body         |  ```javascript [{
+Body         |  ```[{
              |   "task_id": 16,
              |   "task_name": "Zoom Session",
              |   "created_by": 2,
@@ -40,6 +40,7 @@ Body         |  ```javascript [{
              |   "completed": 1
              |  },```
 -------------|---------------------------------------------------------
+------------------------------------------------------------------------
 
 #### Body
 
