@@ -40,6 +40,32 @@ describe('integration testing', () => {
 
 
     })
+
+    describe('GET /api/admin/tasks', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).get('/api/admin/tasks')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).get('/api/admin/tasks')
+            expect(response.type).toMatch(/json/)
+        })
+
+
+    })
+
+    describe('GET /api/volunteer', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).get('/api/volunteer')
+            expect(response.status).toBe(200)
+        })
+        test('should return JSON response ', async () => {
+            const response = await request(server).get('/api/volunteer')
+            expect(response.type).toMatch(/json/)
+        })
+
+
+    })
     
 })
 //testing with async/await and es6 syntax
