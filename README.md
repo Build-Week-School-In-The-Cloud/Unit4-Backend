@@ -20,6 +20,7 @@ GET                      | RESPONSE
 /api                     | 403
 /api/student             | 200
 /api/student/view        | 200
+/api/volunteer           | 200
 /api/volunteer/:id/tasks | 200
 /api/admin               | 200
 /api/admin/tasks         | 200
