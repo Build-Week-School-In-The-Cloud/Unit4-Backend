@@ -123,5 +123,18 @@ describe('integration testing', () => {
 
 
     })
+
+    describe('POST /api/register', () => {
+        test('should return 200 ok', async () => {
+            const response = await request(server).post('/api/register')
+            expect(response.status).toBe(200)
+        })
+        test('should return HTML response ', async () => {
+            const response = await request(server).get('/api/register')
+            expect(response.type).toMatch(/html/)
+        })
+
+
+    })
     
 })
