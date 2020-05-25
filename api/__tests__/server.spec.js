@@ -130,7 +130,7 @@ describe('integration testing', () => {
             expect(response.status).toBe(200)
         })
         test('should return HTML response ', async () => {
-            const response = await request(server).get('/api/register')
+            const response = await request(server).post('/api/register')
             expect(response.type).toMatch(/html/)
         })
 
