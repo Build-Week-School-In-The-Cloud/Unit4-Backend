@@ -67,7 +67,14 @@ server.use('/api/students/', studentView)
 server.set('views', path.join(__dirname, 'views'));
 server.set('view engine', 'pug');
 
-
+server.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 
 server.get('/api/volunteer', (req, res) => {
     res.status(200).json({page: 'Volunteer Portal'})
