@@ -61,6 +61,7 @@ server.use('/api/users', userRouter);
 server.use('/api/admin/tasks', taskRouter)
 server.use('/api/volunteer/:id/tasks', volunteerRouter)
 server.use('/api/student/view', studentRouter)
+server.use('/api/volunteers/', studentRouter)
 server.use('/api/students/', studentView)
 
 server.set('views', path.join(__dirname, 'views'));
