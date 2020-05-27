@@ -2,12 +2,17 @@ const db = require('../../config/db-config')
 
 module.exports = {
     find,
-    findBy
+    findBy,
+    findStudent
 
 }
 
 function find() {
     return db('users').table('volunteer')       
+}
+
+function findStudent() {
+    return db('users').table('student')
 }
 
 function findBy(filter) {

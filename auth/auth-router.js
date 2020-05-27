@@ -1,6 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../www/users/users-model')
+const db = require('../config/db-config')
 
 const jwt = require('jsonwebtoken');
 const secrets = require('../config/secrets')
@@ -58,6 +59,7 @@ router.post('/login', (req, res) => {
             token
         })
     })
+
 
     // console.log({username, password})
     // User.findBy({username})
