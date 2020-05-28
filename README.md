@@ -19,8 +19,10 @@ GET                      | RESPONSE
 /                        | 200
 /api                     | 403
 /api/student             | 200
+/api/students/list       | 200
 /api/student/view        | 200
 /api/volunteer           | 200
+/api/volunteers          | 200
 /api/volunteer/:id/tasks | 200
 /api/admin               | 200
 /api/admin/tasks         | 200
@@ -210,6 +212,8 @@ Authentication | in progress
 ```
 
 ## TODO
+
+- [ ] `/api/admin/tasks` : fix POST 
 - [ ] `/api/register` : on-boarding page
 - [ ] `/api/login` : login page
 - [ ] `/api/logout` : logout page
