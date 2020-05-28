@@ -129,9 +129,9 @@ describe('integration testing', () => {
             const response = await request(server).post('/api/register')
             expect(response.status).toBe(200)
         })
-        test('should return HTML response ', async () => {
+        test('should return JSON response ', async () => {
             const response = await request(server).post('/api/register')
-            expect(response.type).toMatch(/html/)
+            expect(response.type).toMatch(/json/)
         })
 
 

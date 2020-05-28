@@ -204,10 +204,10 @@ Authentication | in progress
 }
 ```
 
-`/api/login` : POST
+`/api/register` : POST
 ```
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoic3R1ZGVudCIsInBhc3N3b3JkIjoic3R1ZGVudCJ9LCJpYXQiOjE1OTAzMzg0MjB9.16VQC5aPl1HDfGLjMCMNH_qsiDAbO3sXE9Tn9fqJaiY"
+  "Jwt": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoic3R1ZGVudCIsInBhc3N3b3JkIjoic3R1ZGVudCJ9LCJpYXQiOjE1OTAzMzg0MjB9.16VQC5aPl1HDfGLjMCMNH_qsiDAbO3sXE9Tn9fqJaiY"
 }
 ```
 
