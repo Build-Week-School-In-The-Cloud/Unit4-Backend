@@ -18,7 +18,7 @@ function vsearch() {
         // .where('t.assigned_to', '=' ,'v.id')
 }
 
-function findById(id) {
+function findById(task_id) {
     return db('users').table('task')
         .where({ task_id })
         .first()
@@ -27,7 +27,7 @@ function findById(id) {
 async function add(task) {
     const [task_id] = await db('users').table('task').insert(task);
 
-    return findById(id)
+    return findById(task_id)
 
 }
 

@@ -22,7 +22,7 @@ function findByTask(task_id) {
         .first()
 }
 
-function findById(id) {
+function findById(task_id) {
     return db('users')
         .table('task as t')
         .join('volunteer as v','v.id' , 't.assigned_to')
@@ -32,7 +32,7 @@ function findById(id) {
 }
 
 async function update(task) {
-    const [id] = await db('users')
+    const [task_id] = await db('users')
         .table('task as t')
         .join('volunteer as v', 'v.id' , 't.assigned_to')
         .update(task);

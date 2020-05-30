@@ -1,20 +1,17 @@
-const jwt = require('jsonwebtoken')
-const secrets = require('../config/secrets')
+const jwt = require('jsonwebtoken');
+const secret = require('../config/secrets');
 
-module.exports = (req, res, next) => {
-    const token = req.headers.authorization;
-        if (token) {
-        jwt.verify(token, secrets.jwtSecret, (err, decoded) => {
+module.exports =  (req, res, next) => {
+    const token = req.headers.authorization
+    if (token) {
+        jwt.verify(token, secret.jwtSecret, (err, decodeToken) => {
             if (err) {
-                res.status(401).json({ message: "Unauthorized"})
+                res.status(401).json({message: 'Access Denied'})
             } else {
-                req.user = {username: decoded.username}
-                next();
+                next()
             }
         })
-
-        } else { 
-            res.status(403).json({ error: 'Forbidden'})
-        }
-    
+    } else {
+        res.status(400).json({error: 'Invalid Token'})
+    }
 }

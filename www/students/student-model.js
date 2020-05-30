@@ -13,6 +13,7 @@ function find() {
 
 function findStudent() {
     return db('users').table('student')
+        
 }
 
 function findBy(filter) {
