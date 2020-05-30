@@ -7,12 +7,12 @@ const adminRouter = require('../www/admins/admin-router')
 const userRouter = require('../www/users/users-router')
 const taskRouter = require('../www/tasks/task-router')
 const volunteerRouter = require('../www/volunteers/volunteers-router')
-const authRouter = require('../auth/auth-router')
+// const authRouter = require('../auth/auth-router')
 const server = express();
 server.use(express.urlencoded({ extended: true}))
 
 server.use(express.json())
-server.use('/api/login', authRouter);
+// server.use('/api/register', authRouter);
 server.use('/api/admin', adminRouter);
 server.use('/api/users', userRouter);
 server.use('/api/admin/tasks', taskRouter)
