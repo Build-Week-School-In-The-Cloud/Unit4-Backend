@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const Task = require('./tasks-model');
+const {find, add} = require('./tasks-model');
 
 router.get('/', (req, res) => {
-    Task.find()
+    find()
         .then(tasks => {
             res.status(200).json(tasks)
         }).catch(err => {
@@ -12,12 +12,12 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const newTask= req.body;
-    Task.add(newTask)
+    const {newTask} = req.body;
+    add(newTask)
         .then( task => {
             res.status(201).json(task)
         }).catch(err => {
-            res.status(201).json({message: 'created new task'})
+            res.status(201).json({message: err})
         })
 });
 

@@ -4,20 +4,21 @@ module.exports = {
     add,
     findById,
     find,
+    findBy,
     filterById,
 }
 
 async function add(user) {
     user.password = await bcrypt.hash(user.password, 12)
 
-    const [id] = await db('users').insert(user)
+    const [user_id] = await db('users').insert(user)
 
-    return findById(id)
+    return findById(user_id)
 }
 
-function findById(id) {
+function findById(user_id) {
     return db('users')
-        .where({ id })
+        .where({ user_id })
         .first()
 }
 
@@ -26,9 +27,9 @@ function login(filter) {
         .where(filter)
 }
 
-function filterById(role_id) {
+function filterById(user_id) {
     return db('users')
-        .where({ role_id })
+        .where({ user_id })
         .first()
 }
 
@@ -40,5 +41,5 @@ function findBy({ username }) {
 
 function find() {
     return db('users')
-        .select('id', 'username', 'password', 'role')
+        .select('user_id', 'username', 'password', 'role')
 }

@@ -1,67 +1,95 @@
-const express = require('express');
-const bcrypt = require('bcryptjs');
-const User = require('../www/users/users-model')
-
-const jwt = require('jsonwebtoken');
-const secrets = require('../config/secrets')
-// const restricted = require('../auth/auth-auth_middleware')
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const session = require("express-session");
+const Users = require("../www/users/users-model");
 
 const router = express.Router();
 
-function genToken(user) {
-    const payload = {
-        subject: user.id,
-        username: user.username,
-        //roleId: user.role_id
-        //other....
+const sessionConfig = {
+  secret: "school.in.the.cloud",
+  name: "sitc",
+  httpOnly: true,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false,
+    maxAge: 1000 * 60 * 1,
+  },
+};
+
+router.use(session(sessionConfig));
+
+router.post('/register', (req, res) => {
+    let creds = {
+        username: req.body.username,
+        password: req.body.password
     }
 
-    const options = {
-        expiresIn: "3h"
+    jwt.sign({creds}, 'jwtSecret', (err, token) => {
+        res.status(200).json({Jwt:`Bearer ${token}`})
+        if (err) {
+            res.status(400).json(err)
+        }
+
+    })
+
+});
+
+// router.post("/register", (req, res) => {
+  // try {
+  // 	const { username } = req.body
+  // 	const user = await Users.findBy({ username }).first()
+
+  // 	if (user) {
+  // 		return res.status(409).json({
+  // 			message: "Username is already taken",
+  // 		})
+  // 	}
+
+  // 	res.status(201).json(await Users.add(req.body))
+  // } catch(err) {
+  // 	next(err)
+  // }
+//   router.post("/login", (req, res) => {
+//     res.json({ message: "jwtSecret" });
+//   });
+// });
+
+router.post("/login", (req, res, next) => {
+    let creds = {
+        username: req.body.username,
+        password: req.body.password
     }
 
-    return jwt.sign(payload, secrets.jwtSecret, options)
-}
+    jwt.sign({creds}, 'jwtSecret', (err, token) => {
+        res.status(200).json({Jwt:`Bearer ${token}`})
+        if (err) {
+            res.status(400).json(err)
+        }
 
-router.post('/register', async (req, res, next) => {
-    const {username, role, password} = req.body;
-
-    try {
-        const salt = await bcrypt.genSalt(12);
-        const hashPass = await bcrypt.hash(password, salt);
-
-        const newUser = await Users.add({
-            username,
-            role: req.body.role,
-            password: hashPass
-        });
-
-        res.status(201).json({ok: newUser});
-
-    } catch(err) {
-        res.status(500).json({error: 'Internal Server Error'})
-    }
-})
-
-router.post('/login', (req, res) => {
-    let { username, password } = req.body;
-
-    console.log({username, password})
-    User.findBy({username})
-        .first()
-        .then(user => {
-            if (user && bcrypt.compareSync(password, user.password)) {
-                const token = genToken(user)
-                res.status(200).json({ message: `Welcome ${user.username}!`, token: token});
-            } else {
-                res.status(498).json({ message: 'Invalid Token' });
-            }
-        }).catch(err => {
-            res.status(500).json({error: 'Internal Server Error'})
-        })
-})
-
-
-
+    })
+  // try {
+  // 	const { username, password } = req.body
+  // 	const user = await Users.findBy({ username }).first()
+  // 	const passwordValid = await bcrypt.compare(password, user.password)
+  // 	if (!user || !passwordValid) {
+  // 		return res.status(401).json({
+  // 			message: "Invalid Credentials",
+  // 		})
+  // 	}
+  // 	const payload = {
+  // 		userId: user.user_id,
+  // 		userRole: "Student", // this would normally come from a database
+  // 	}
+  // 	const token = jwt.sign(payload, process.env.JWT_SECRET)
+  // 	res.cookie("token", token)
+  // 	res.json({
+  // 		message: `Welcome ${user.username}!`,
+  // 	})
+  // } catch(err) {
+  // 	next(err)
+  // }
+});
 
 module.exports = router;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "server": "nodemon index.js",
+    "server": "nodemon --ignore sessions/ server.js index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -21,17 +21,29 @@
   "homepage": "https://github.com/Build-Week-School-In-The-Cloud/Unit4-Backend#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "express-jwt-authz": "^2.3.1",
+    "express-session": "^1.17.1",
     "gitignore": "^0.6.0",
     "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
+    "jwks-rsa": "^1.8.0",
     "knex": "^0.21.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "pug": "^2.0.4",
-    "sqlite3": "^4.2.0"
+    "rate-limiter-flexible": "^2.1.6",
+    "redis": "^3.0.2",
+    "session-file-store": "^1.4.0",
+    "sqlite3": "^4.2.0",
+    "uuid": "^8.1.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "jest": "^26.0.1",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2"

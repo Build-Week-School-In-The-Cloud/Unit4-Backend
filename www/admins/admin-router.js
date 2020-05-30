@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
     const newAdmin = req.body;
-    Admin.add(newAdmin)
+    Admins.add(newAdmin)
         .then( admin => {
             res.status(201).json(admin)
         }).catch(err => {
@@ -21,15 +21,5 @@ router.post('/', (req, res) => {
         })
 });
 
-// router.get('/:id', async (req, res) => {
-//     try {
-//         const id = Number(req.params.id)
-//         const admin = await Admins.findById()
-//         res.status(200).json(admin.id)
-//     } catch(err) {
-//         res.json(err)
-//     }
-
-// })
 
 module.exports = router;

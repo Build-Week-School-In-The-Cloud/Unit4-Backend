@@ -9,18 +9,18 @@ module.exports = {
 
 function find() {
     return db('users').table('admin')
-        .select('id', 'admin_First', 'admin_Last')
+        .select('admin_id', 'admin_First', 'admin_Last')
 }
 
-function findById(id) {
+function findById(admin_id) {
     return db('users').table('admin')
-        .where({ id })
+        .where({ admin_id })
         .first()
 }
 
 async function add(admin) {
-    const [id] = await db('users').table('admin').insert(admin);
+    const [admin_id] = await db('users').table('admin').insert(admin);
 
-    return findById(id)
+    return findById(admin_id)
 
 }
