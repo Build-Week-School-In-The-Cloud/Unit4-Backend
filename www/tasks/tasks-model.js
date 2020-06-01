@@ -6,6 +6,8 @@ module.exports = {
     add,
     vsearch,
     remove,
+    findTaskByAssigned,
+    findTaskByCreated,
 
 }
 
@@ -29,6 +31,18 @@ async function add(task) {
     const [task_id] = await db('users').table('task').insert(task);
 
     return findById(task_id)
+
+}
+
+function findTaskByAssigned(assigned_to) {
+    return db('users').table('task as t')
+        .join('volunteer as v', 'v.volunteer_id', 't.assigned_to')
+        .where({assigned_to: v.volunteer_id})
+
+
+}
+
+function findTaskByCreated(created_by) {
 
 }
 

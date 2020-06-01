@@ -9,7 +9,6 @@ module.exports = {
 
 function find() {
     return db('users').table('admin')
-        .select('admin_id', 'admin_First', 'admin_Last')
 }
 
 function findById(admin_id) {
