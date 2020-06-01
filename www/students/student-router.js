@@ -22,13 +22,21 @@ router.get('/list', (req, res) => {
     })
 })
 
-router.get('/search', (req, res) => {
-    Student.findBy(req.body)
-        .then(volunteer => {
+router.get('/:country', async (req, res, next) => {
+    try {
+        const {country} = req.params
+        const volunteer = await Student.findBy(country)
+
+        if (volunteer && country) {
             res.status(200).json(volunteer)
-        }).catch(err => {
-            res.json(err)
-        })
+        } else {
+            res.status(404).json({ message: 'Cannot find this Volunteer!'})
+        }
+
+    } catch(err) {
+        next(err)
+    }
+    
 })
 
 module.exports = router;

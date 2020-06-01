@@ -17,7 +17,7 @@ function findStudent() {
         
 }
 
-function findBy(filter) {
-    return db('users').table('voluteer')
-        .where(filter)
+function findBy(country) {
+    return db('users').table('volunteer')
+        .where({country: country})
 }
