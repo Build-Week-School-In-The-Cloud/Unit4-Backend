@@ -21,11 +21,18 @@ GET                      | RESPONSE
 /api/student             | 200
 /api/students/list       | 200
 /api/student/view        | 200
+/api/student/view/:country | 200
 /api/volunteer           | 200
 /api/volunteers          | 200
 /api/volunteer/:id/tasks | 200
 /api/admin               | 200
 /api/admin/tasks         | 200
+--------------------------------------
+
+--------------------------------------
+DELETE                | RESPONSE
+----------------------|----------
+/api/admin/tasks/:id  | 200
 --------------------------------------
 
 ---------------------------------
@@ -98,6 +105,27 @@ Authentication | in progress
 "completed": 0
 }
 ]
+```
+
+`/api/admin/tasks/18 ` : admin view tasks by task_id 
+```
+{
+"task_id": 18,
+"task_name": "Zoom Session",
+"created_by": 2,
+"assigned_to": 1,
+"description": "Prepare the PVD and DB Schema",
+"due_date": "",
+"completed": 1
+}
+
+```
+
+`/api/admin/tasks/20 : DELETE tasks
+```
+{
+    "message": "Task 20 has been deleted!"
+}
 ```
 
 `/api/volunteer` : volunteer landing page
@@ -188,6 +216,43 @@ Authentication | in progress
 "available_time": "9am-5pm"
 }
 ]
+```
+
+`/api/student/view/USA` : sort volunteer by country
+```
+[
+{
+"volunteer_id": 1,
+"volunteer_firstName": "Bruce",
+"volunteer_lastName": "Willis",
+"auth_id": "",
+"email": "volunteer2@sitc.cloud",
+"on_line": 1,
+"country": "USA",
+"available_time": "9am-5pm"
+},
+{
+"volunteer_id": 2,
+"volunteer_firstName": "Lisa",
+"volunteer_lastName": "Willis",
+"auth_id": "",
+"email": "volunteer5@sitc.cloud",
+"on_line": 1,
+"country": "USA",
+"available_time": "9am-5pm"
+},
+{
+"volunteer_id": 3,
+"volunteer_firstName": "Sherr",
+"volunteer_lastName": "Willis",
+"auth_id": "",
+"email": "volunteer22@sitc.cloud",
+"on_line": 0,
+"country": "USA",
+"available_time": "9am-5pm"
+}
+]
+
 ```
 
 `/api` : restricted

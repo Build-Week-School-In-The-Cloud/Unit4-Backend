@@ -5,7 +5,18 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('role').insert([
-        {role_id: 2, user_id: '18', role: 'volunteer' , volunteer_id: 24, student_id: null, administrator_id: null }
+        {role_id: 2, 
+          user_id: '17', 
+          role: 'volunteer' , 
+          volunteer_id: 14, 
+          student_id: '', 
+          administrator_id: '' },
+          {role_id: 1, 
+            user_id: '18', 
+            role: 'administrator' , 
+            volunteer_id: '', 
+            student_id: '', 
+            administrator_id: '' }
       ]);
     });
 };
