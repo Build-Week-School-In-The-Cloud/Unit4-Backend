@@ -1,14 +1,15 @@
 const db = require('../../config/db-config')
 
 module.exports = {
-    find,
+    findVolunteers,
     findBy,
-    findStudent
+    findStudent,
+    findBy
 
 }
 
-function find() {
-    return db('users').table('volunteer')       
+function findVolunteers() {
+    return db('users').table('volunteer')
 }
 
 function findStudent() {
