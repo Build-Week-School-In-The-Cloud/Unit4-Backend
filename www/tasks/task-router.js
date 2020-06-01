@@ -27,6 +27,23 @@ router.get('/:task_id', async (req, res, next) => {
     }
 })
 
+router.delete('/:task_id', async (req, res, next) => {
+    try {
+        const {task_id} = req.params
+        const deleteTask = await Task.remove(task_id)
+
+        if (deleteTask) {
+            res.status(200)
+            .json({message: `Task ${task_id} has been deleted!`})
+            
+        } else {
+            res.status(404).json({message: 'Could not find task with that Id. Nothing deleted!'})
+        }
+    } catch(err) {
+        next(err)
+    }
+})
+
 router.post('/', (req, res) => {
     const {newTask} = req.body;
     Task.add(newTask)

@@ -29,6 +29,12 @@ GET                      | RESPONSE
 /api/admin/tasks         | 200
 --------------------------------------
 
+--------------------------------------
+DELETE                | RESPONSE
+----------------------|----------
+/api/admin/tasks/:id  | 200
+--------------------------------------
+
 ---------------------------------
 Content-Type   | application/json
 ---------------|------------------
@@ -113,6 +119,13 @@ Authentication | in progress
 "completed": 1
 }
 
+```
+
+`/api/admin/tasks/20 : DELETE tasks
+```
+{
+    "message": "Task 20 has been deleted!"
+}
 ```
 
 `/api/volunteer` : volunteer landing page

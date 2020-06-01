@@ -5,6 +5,7 @@ module.exports = {
     findById,
     add,
     vsearch,
+    remove,
 
 }
 
@@ -20,7 +21,7 @@ function vsearch() {
 
 function findById(task_id) {
     return db('users').table('task')
-        .where({ task_id })
+        .where({ task_id: task_id })
         .first()
 }
 
@@ -29,6 +30,12 @@ async function add(task) {
 
     return findById(task_id)
 
+}
+
+function remove(task_id) {
+    return db('users').table('task')
+        .where({task_id: task_id})
+        .del()
 }
 
 /* async function edit(task) { 
