@@ -57,7 +57,7 @@ router.get('/:available_time', async (req, res, next) => {
 
 router.get('/:email', async (req, res, next) => {
     try {
-        const {email} = req.params
+        const {email} = String(req.params)
         const volunteer = await Student.findByEmail(email)
 
         if (volunteer && available_time) {
@@ -74,9 +74,9 @@ router.get('/:email', async (req, res, next) => {
 router.get('/:volunteer_id', async (req, res, next) => {
     try {
         const {volunteer_id} = req.params
-        const volunteer = await Student.findByVolunteerId(volunteer_id, req.body)
+        const volunteer = await Student.findByVolunteerId(volunteer_id)
 
-        if (volunteer && volunteer_id) {
+        if (volunteer) {
             res.status(200).json(volunteer)
 
         } else {

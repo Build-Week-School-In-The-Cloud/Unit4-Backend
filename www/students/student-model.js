@@ -4,7 +4,7 @@ module.exports = {
     findVolunteers,
     findByCountry,
     findStudent,
-    // findById
+    findByVolunteerId
 
 }
 
