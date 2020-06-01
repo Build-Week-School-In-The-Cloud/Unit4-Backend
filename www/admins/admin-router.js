@@ -43,14 +43,13 @@ router.get('/tasks/:task_id', async (req, res, next) => {
 })
 
 
-router.post('/', (req, res) => {
-    const newAdmin = req.body;
-    Admins.add(newAdmin)
-        .then( admin => {
-            res.status(201).json(admin)
-        }).catch(err => {
-            res.status(500).json({message: 'Failed to create new admin'})
-        })
+router.post('/tasks', async (req, res, next) => {
+    try {
+        const newTask = await Tasks.add(req.body)
+        res.status(201).json({message: 'Task created!'})
+    } catch(err) {
+        next(err)
+    }
 });
 
 module.exports = router;
